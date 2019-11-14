@@ -1,71 +1,45 @@
 //show films list
 
-// let films;
+let films;
 
-// fetch('https://swapi.co/api/films').then(function(response) {
-//     return response.json();
-// }).then(function(json) {
-//     products = json;
-//     initialize();
-// }).catch(function(err) {
-//     console.log('Fetch problem: ' + err.message);
-// });
+function sortItem() {
+    let finalGroup = []
+    const selectSort = document.querySelector('#sort__select');
+    selectSort.addEventListener('change', () => {
+        const selectValue = selectSort.options[selectSort.selectedIndex].value;
+        switch (selectValue) {
+            case ('date'):
+                films.sort((a, b) => {
+                    let aa = a.release_date.split('-');
+                    let bb = b.release_date.split('-');
+                    return aa[0] - bb[0];
 
-// function initialize() {
-//     console.log(films)
-// }
+                });
+                break;
+            case ('episode_id'):
+                films.sort((a, b) => {
+                    return a.episode_id - b.episode_id
+                });
+                break
+        }
+       console.log(films)
+    })
 
-async function getFilms() {
+}
+
+async function renderFilms() {
     const list = document.querySelector('.films__list')
     const url = 'https://swapi.co/api/films';
     const response = await fetch(url);
     const result = await response.json();
-    const filmsArr = result.results;
+    films = result.results;
     const loader = document.querySelector('.lds-ring');
 
     if (list) {
         loader.style.display = 'none'
     }
 
-
-
-    // const sortOptions = document.querySelectorAll('#sort__select option');
-    //
-
-    // selectSort.addEventListener('change', async (e) => {
-    //     console.log(e.target)
-    //     sortOptions.forEach(item => {
-    //
-    //         if (item.value === 'date') {
-    //             console.log('date')
-    //         }
-    //         if (item.value === 'episode_id') {
-    //             console.log('episode_id')
-    //         }
-    //
-    //     })
-    // })
-
-    // sortOptions.forEach(option => {
-    //     console.log(option);
-    //     if (option.selected && option.value === 'date') {
-    //         filmsArr.sort((a,b) => {
-    //             let aa = a.release_date.split('-');
-    //             let bb = b.release_date.split('-');
-    //             return  aa[0] - bb[0];
-    //
-    //         });
-    //     }
-    //     if (option.selected && option.value === 'episode_id') {
-    //         filmsArr.sort((a,b) => {
-    //             location.reload()
-    //             return a.episode_id - b.episode_id
-    //         });
-    //     }
-    // })
-
-    console.log(filmsArr)
-    filmsArr.forEach(film => {
+    films.forEach(film => {
         const listItem = document.createElement('li');
         listItem.setAttribute('id', `film${film.episode_id}`);
         listItem.innerHTML = `
@@ -77,23 +51,33 @@ async function getFilms() {
                 <button id=${film.episode_id}>Show More</button></div>
                 <div class=characters-film${film.episode_id}></div>
                 <div class=planets-film${film.episode_id}></div>
+                <div class=ships-film${film.episode_id}></div>
         `;
         list.appendChild(listItem);
 
     })
 
+}
+
+function showMore() {
     const showBtns = document.querySelectorAll('li button');
     showBtns.forEach(item => {
         item.addEventListener('click', async () => {
+
             const url = `https://swapi.co/api/films/${item.id}`
             const response = await fetch(url);
             const result = await response.json();
+
             const charArr = result.characters;
             const planetArr = result.planets;
+            const shipsArr = result.starships
+
             const infoWrap = document.querySelector(`.characters-film${item.id}`);
             const h3Characters = document.createElement('h3');
             h3Characters.innerHTML = 'Characters';
             infoWrap.appendChild(h3Characters);
+
+
             charArr.forEach(async char => {
                 const charResponse = await fetch(char)
                 const charResult = await charResponse.json();
@@ -110,18 +94,45 @@ async function getFilms() {
             planetArr.forEach(async planet => {
                 const planetResponse = await fetch(planet);
                 const planetResult = await planetResponse.json();
-                const planetNames= planetResult.name;
+                const planetNames = planetResult.name;
                 planetWrapper.innerHTML += `${planetNames}, `
 
             })
+
+            const shipWrapper = document.querySelector(`.ships-film${item.id}`)
+            const h3Ships = document.createElement('h3');
+            h3Ships.innerHTML = 'Starships from film'
+            shipWrapper.appendChild(h3Ships);
+            let starships = []
+            shipsArr.forEach(async ship => {
+                starships.push(ship)
+                const shipResponse = await fetch(ship);
+                const shipResult = await shipResponse.json();
+                const shipNames = shipResult.name;
+                const shipModels = shipResult.model;
+                shipWrapper.innerHTML += `Name: ${shipNames}, model: ${shipModels} <br><br>`
+
+            })
+            console.log(starships)
+           starships.forEach(async (item) => {
+               const starshipResp = await fetch(item)
+               const starres = await starshipResp.json()
+               console.log(starres)
+           })
 
 
         })
     })
 
-
 }
 
+
+async function init() {
+    await renderFilms();
+    sortItem()
+    await showMore()
+
+}
 
 
 
