@@ -2,6 +2,27 @@
 
 let films;
 
+function searchElem() {
+    const searchInp = document.querySelector('#search__input');
+    const searchBtn = document.querySelector('.search__button');
+    const articles = document.querySelectorAll('.film-item');
+    const wrapper = document.querySelector('.films__list');
+    searchBtn.addEventListener('click', (e) => {
+        e.preventDefault()
+        const searchText = new RegExp(searchInp.value.trim(), 'i');
+        articles.forEach(arcticle => {
+            const filmTitle = arcticle.querySelector('.films-title');
+            if (!searchText.test(filmTitle.textContent)) {
+               arcticle.remove()
+            } else {
+                wrapper.appendChild(arcticle)
+            }
+        })
+        searchInp.value = ''
+    })
+
+}
+
 function sortItem() {
     let finalGroup = []
     const selectSort = document.querySelector('#sort__select');
@@ -22,7 +43,7 @@ function sortItem() {
                 });
                 break
         }
-       console.log(films)
+        console.log(films)
     })
 
 }
@@ -42,9 +63,10 @@ async function renderFilms() {
     films.forEach(film => {
         const listItem = document.createElement('li');
         listItem.setAttribute('id', `film${film.episode_id}`);
+        listItem.setAttribute('class', `film-item`);
         listItem.innerHTML = `
                 <div class=films-wrapper${film.episode_id}>
-                <h3>${film.title}</h3>
+                <h3 class=films-title>${film.title}</h3>
                 <p>Release : ${film.release_date}</p>
                 <p>Director : ${film.director}</p>
                 <p>Description: <br> ${film.opening_crawl}</p>
@@ -114,11 +136,11 @@ function showMore() {
 
             })
             console.log(starships)
-           starships.forEach(async (item) => {
-               const starshipResp = await fetch(item)
-               const starres = await starshipResp.json()
-               console.log(starres)
-           })
+            starships.forEach(async (item) => {
+                const starshipResp = await fetch(item)
+                const starres = await starshipResp.json()
+                console.log(starres)
+            })
 
 
         })
@@ -131,6 +153,7 @@ async function init() {
     await renderFilms();
     sortItem()
     await showMore()
+    searchElem()
 
 }
 
