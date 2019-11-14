@@ -9,10 +9,29 @@
     <title>Star Wars Catalog</title>
 </head>
 <body onload="getFilms()">
+
 <embed src="audio/Имперский%20Марш%20—%20Звёздные%20Войны_(zvooq.su).mp3" autostart="true"  hidden="false" loop="true" width="300" height="65" align="bottom"> </embed>
 <header>
-    <h1 class="header__title">STAR WARS</h1>
-    <h3 class="header__subtitle">Wookieepedia</h3>
+    <div class="header-title-wrapper">
+        <h1 class="header__title">STAR WARS</h1>
+        <h3 class="header__subtitle">Wookieepedia</h3>
+    </div>
+    <form action="">
+        <div class="sort">
+            <h3 class="sort__title">Sort by</h3>
+            <select name="" id="sort__select">
+                <option value="">--//--</option>
+                <option value="date">Release date</option>
+                <option value="episode_id">Chronological order</option>
+            </select>
+        </div>
+            <div class="search">
+                <h3 class="search__title">Search</h3>
+                <input type="text" id="search__input" placeholder="Search">
+                <label for="search__input" class="search__label"><img src="img/iconfinder_11_Search_106236.png" alt=""></label>
+            </div>
+        <input type="submit" value="Update" class="update">
+    </form>
 </header>
 
 <section class="films">
@@ -25,24 +44,10 @@
             <div></div>
         </div>
     </ul>
-<!--    <div class="films-info">-->
-<!--        <h3 class="films-info__title">About</h3>-->
-<!--    </div>-->
-</section>
+    <div class="films-info">
 
-<!--<section class="characters">-->
-<!--    <ul class="characters__list">-->
-<!--        <div class="lds-ring">-->
-<!--            <div></div>-->
-<!--            <div></div>-->
-<!--            <div></div>-->
-<!--            <div></div>-->
-<!--        </div>-->
-<!--    </ul>-->
-<!--    <div class="characters-info">-->
-<!--        <h3 class="characters-info__title">About</h3>-->
-<!--    </div>-->
-<!--</section>-->
+    </div>
+</section>
 <script src="js/script.js"></script>
 </body>
 </html>

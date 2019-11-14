@@ -83,10 +83,37 @@ ul, li {
 
 header {
   text-align: center;
-  padding: 20px 0; }
+  padding: 20px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
 
 .header__title {
   font-size: 52px; }
+
+#sort__select {
+  padding: 30px;
+  font-size: 14px;
+  background: #000;
+  font-family: "STARWARS"; }
+
+#search__input {
+  padding: 10px;
+  border: 1px solid #ffff66;
+  background: #000;
+  color: #ffff66;
+  font-family: "STARWARS";
+  font-size: 12px; }
+
+.search__label {
+  background: #ffff66;
+  padding: 7px;
+  border-radius: 50%; }
 
 .films {
   text-align: center;
@@ -100,25 +127,24 @@ header {
     -webkit-transition: .5s ease-in-out;
     -o-transition: .5s ease-in-out;
     transition: .5s ease-in-out; }
-  .films .films__list li {
+  .films .films__list > li {
     -webkit-transition: .3s;
     -o-transition: .3s;
     transition: .3s;
     padding: 15px 0;
-    -webkit-transform: perspective(300px) rotateX(23deg);
-    transform: perspective(300px) rotateX(23deg);
     font-family: "STARWARS";
-    font-size: 20px;
-    max-width: 600px; }
+    font-size: 14px;
+    max-width: 600px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+    justify-content: space-around; }
   .films .films__list li h3 {
     font-size: 24px;
     margin-bottom: 10px; }
-  .films .films__list li:hover {
-    -webkit-transform: scale(1);
-    -ms-transform: scale(1);
-    transform: scale(1); }
 
-.films__list li button {
+button, .update {
   border: none;
   padding: 10px;
   font-family: "STARWARS";
@@ -128,7 +154,8 @@ header {
   cursor: pointer;
   -webkit-transition: all .4s ease;
   -o-transition: all .4s ease;
-  transition: all .4s ease; }
+  transition: all .4s ease;
+  margin-top: 10px; }
 
 .films__list li button:hover {
   background: transparent;
@@ -137,11 +164,25 @@ header {
 .films__main-title {
   margin-bottom: 20px; }
 
-.films-info__title {
-  opacity: 0;
-  -webkit-transition: .4s;
-  -o-transition: .4s;
-  transition: .4s; }
+.info1,
+.info2,
+.info3,
+.info4,
+.info5,
+.info6,
+.info7 {
+  height: 300px;
+  overflow-y: scroll;
+  margin-left: 30px; }
+
+.planets-film1,
+.planets-film2,
+.planets-film3,
+.planets-film4,
+.planets-film5,
+.planets-film6,
+.planets-film7 {
+  margin-left: 30px; }
 
 .characters {
   display: -webkit-box;
@@ -150,3 +191,6 @@ header {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center; }
+
+.sort {
+  margin-bottom: 20px; }
