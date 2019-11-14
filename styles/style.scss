@@ -1,0 +1,159 @@
+//default settings
+@font-face {
+  font-family: "STARWARS";
+  src: url("fonts/STARWARS.eot?") format("eot"), url("fonts/STARWARS.woff") format("woff"), url("fonts/STARWARS.ttf") format("truetype"), url("fonts/STARWARS.svg#STARWARS") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Droid Sans";
+  src: url("fonts/3947.ttf") format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: "STARWARS";
+  letter-spacing: 2px;
+  transform: perspective(300px) rotateX(25deg);
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  min-width: 100%;
+  height: 100%;
+  background: #000000 center center / cover no-repeat;
+  background-size: 100%;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  color: #ffff66;
+
+}
+
+ul,li {
+  list-style: none;
+}
+
+
+//loader
+
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 51px;
+  height: 51px;
+  margin: 6px;
+  border: 6px solid #ffff66;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #ffff66 transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+//header
+
+header {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.header__title {
+  font-size: 52px;
+}
+
+// films
+
+.films {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+
+  .films__list {
+    transition: .5s ease-in-out;
+  }
+
+  .films__list li {
+    transition: .3s;
+    padding: 15px 0;
+    transform: perspective(300px) rotateX(23deg);
+    font-family: "STARWARS";
+    font-size: 20px;
+    max-width: 600px;
+  }
+
+  .films__list li h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .films__list li:hover {
+    transform: scale(1);
+  }
+}
+
+.films__list li button{
+  border: none;
+  padding: 10px;
+  font-family: "STARWARS";
+  font-size: 16px;
+  color: #000;
+  background: #ffff66;
+  cursor: pointer;
+  transition: all .4s ease;
+  
+}
+
+.films__list li button:hover {
+  background: transparent;
+  color: #ffff66;
+}
+
+.films__main-title {
+  margin-bottom: 20px ;
+}
+
+// info
+
+.films-info__title {
+  opacity: 0;
+  transition: .4s;
+}
+
+
+//characters
+
+.characters {
+  display: flex;
+  justify-content: center;
+}
