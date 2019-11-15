@@ -184,6 +184,99 @@ button, .update {
 .planets-film7 {
   margin: 0 30px 30px; }
 
+.pagination-ships1,
+.pagination-ships2,
+.pagination-ships3,
+.pagination-ships4,
+.pagination-ships5,
+.pagination-ships6,
+.pagination-ships7,
+.pagination-planets1,
+.pagination-planets2,
+.pagination-planets3,
+.pagination-planets4,
+.pagination-planets5,
+.pagination-planets6,
+.pagination-planets7,
+.pagination-characters1,
+.pagination-characters2,
+.pagination-characters3,
+.pagination-characters4,
+.pagination-characters5,
+.pagination-characters6,
+.pagination-characters7 {
+  margin-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
+  .pagination-ships1 #btn_next,
+  .pagination-ships2 #btn_next,
+  .pagination-ships3 #btn_next,
+  .pagination-ships4 #btn_next,
+  .pagination-ships5 #btn_next,
+  .pagination-ships6 #btn_next,
+  .pagination-ships7 #btn_next,
+  .pagination-planets1 #btn_next,
+  .pagination-planets2 #btn_next,
+  .pagination-planets3 #btn_next,
+  .pagination-planets4 #btn_next,
+  .pagination-planets5 #btn_next,
+  .pagination-planets6 #btn_next,
+  .pagination-planets7 #btn_next,
+  .pagination-characters1 #btn_next,
+  .pagination-characters2 #btn_next,
+  .pagination-characters3 #btn_next,
+  .pagination-characters4 #btn_next,
+  .pagination-characters5 #btn_next,
+  .pagination-characters6 #btn_next,
+  .pagination-characters7 #btn_next {
+    margin: 0 10px 0 10px; }
+  .pagination-ships1 #btn_next, .pagination-ships1 #btn_prev,
+  .pagination-ships2 #btn_next,
+  .pagination-ships2 #btn_prev,
+  .pagination-ships3 #btn_next,
+  .pagination-ships3 #btn_prev,
+  .pagination-ships4 #btn_next,
+  .pagination-ships4 #btn_prev,
+  .pagination-ships5 #btn_next,
+  .pagination-ships5 #btn_prev,
+  .pagination-ships6 #btn_next,
+  .pagination-ships6 #btn_prev,
+  .pagination-ships7 #btn_next,
+  .pagination-ships7 #btn_prev,
+  .pagination-planets1 #btn_next,
+  .pagination-planets1 #btn_prev,
+  .pagination-planets2 #btn_next,
+  .pagination-planets2 #btn_prev,
+  .pagination-planets3 #btn_next,
+  .pagination-planets3 #btn_prev,
+  .pagination-planets4 #btn_next,
+  .pagination-planets4 #btn_prev,
+  .pagination-planets5 #btn_next,
+  .pagination-planets5 #btn_prev,
+  .pagination-planets6 #btn_next,
+  .pagination-planets6 #btn_prev,
+  .pagination-planets7 #btn_next,
+  .pagination-planets7 #btn_prev,
+  .pagination-characters1 #btn_next,
+  .pagination-characters1 #btn_prev,
+  .pagination-characters2 #btn_next,
+  .pagination-characters2 #btn_prev,
+  .pagination-characters3 #btn_next,
+  .pagination-characters3 #btn_prev,
+  .pagination-characters4 #btn_next,
+  .pagination-characters4 #btn_prev,
+  .pagination-characters5 #btn_next,
+  .pagination-characters5 #btn_prev,
+  .pagination-characters6 #btn_next,
+  .pagination-characters6 #btn_prev,
+  .pagination-characters7 #btn_next,
+  .pagination-characters7 #btn_prev {
+    cursor: pointer; }
+
 .characters {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -194,3 +287,10 @@ button, .update {
 
 .sort {
   margin-bottom: 20px; }
+
+#btn_prev, #btn_next {
+  background: #ffff66;
+  font-family: "STARWARS";
+  color: #000000;
+  font-size: 16px;
+  padding: 5px; }

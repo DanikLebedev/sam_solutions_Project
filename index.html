@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="styles/style.css">
     <title>Star Wars Catalog</title>
 </head>
-<body onload="init()">
-
+<body>
+<div class="modal"></div>
 <embed src="audio/Имперский%20Марш%20—%20Звёздные%20Войны_(zvooq.su).mp3" autostart="true"  hidden="false" loop="true" width="300" height="65" align="bottom"> </embed>
 <header>
     <div class="header-title-wrapper">
@@ -30,13 +30,11 @@
                 <input type="text" id="search__input" placeholder="Search">
                 <button class="search__button"><img src="img/iconfinder_11_Search_106236.png" alt=""></button>
             </div>
-        <input type="submit" value="Update" class="update">
+        <input type="submit"  value="update" class="update">
     </form>
 </header>
-
 <section class="films">
     <ul class="films__list">
-       <h3 class="films__main-title">Films</h3>
         <div class="lds-ring">
             <div></div>
             <div></div>
@@ -44,10 +42,8 @@
             <div></div>
         </div>
     </ul>
-    <div class="films-info">
-
-    </div>
 </section>
+
 <script src="js/script.js"></script>
 </body>
 </html>

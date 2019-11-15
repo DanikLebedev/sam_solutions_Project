@@ -197,6 +197,38 @@ button,.update {
   margin: 0 30px 30px;
 }
 
+.pagination-ships1,
+.pagination-ships2,
+.pagination-ships3,
+.pagination-ships4,
+.pagination-ships5,
+.pagination-ships6,
+.pagination-ships7,
+.pagination-planets1,
+.pagination-planets2,
+.pagination-planets3,
+.pagination-planets4,
+.pagination-planets5,
+.pagination-planets6,
+.pagination-planets7,
+.pagination-characters1,
+.pagination-characters2,
+.pagination-characters3,
+.pagination-characters4,
+.pagination-characters5,
+.pagination-characters6,
+.pagination-characters7  {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  #btn_next {
+    margin: 0 10px 0 10px;
+  }
+  #btn_next,#btn_prev {
+    cursor: pointer;
+  }
+}
+
 
 
 //characters
@@ -210,3 +242,13 @@ button,.update {
   margin-bottom: 20px;
 }
 
+
+// pagination btn
+
+#btn_prev,#btn_next {
+  background: #ffff66;
+  font-family: "STARWARS";
+  color: #000000;
+  font-size: 16px;
+  padding: 5px;
+}
