@@ -13,55 +13,6 @@ async function init() {
 let films;
 
 
-// function func() {
-//      locale_HTML = document.body.innerHTML;
-// }
-// setTimeout(func, 1000);
-//
-// FindOnPage('search__input', false)
-//
-// function FindOnPage(name, status) {
-//
-//     input = document.getElementById(name).value; //получаем значение из поля в html
-//
-//     if(input.length<3&&status==true)
-//     {
-//         alert('Для поиска вы должны ввести три или более символов');
-//        FindOnPageBack();
-//     }
-//
-//     if(input.length>=3)
-//     {
-//         function FindOnPageGo() {
-//
-//             search = '/'+input+'/g';  //делаем из строки регуярное выражение
-//             pr = document.body.innerHTML;   // сохраняем в переменную весь body
-//             result = pr.match(/>(.*?)</g);  //отсекаем все теги и получаем только текст
-//             result_arr = [];   //в этом массиве будем хранить результат работы (подсветку)
-//
-//             var warning = true;
-//             for(var i=0;i<result.length;i++) {
-//                 if(result[i].match(eval(search))!=null) {
-//                     warning = false;
-//                 }
-//             }
-//             if(warning == true) {
-//                 alert('Не найдено ни одного совпадения');
-//             }
-//
-//             for(var i=0; i<result.length;i++) {
-//                 result_arr[i] = result[i].replace(eval(search), '<span style="background-color:yellow;">'+input+'</span>'); //находим нужные элементы, задаем стиль и сохраняем в новый массив
-//             }
-//             for(var i=0; i<result.length;i++) {
-//                 pr=pr.replace(result[i],result_arr[i])  //заменяем в переменной с html текст на новый из новогом ассива
-//             }
-//             document.body.innerHTML = pr;  //заменяем html код
-//         }
-//     }
-//     function FindOnPageBack() { document.body.innerHTML = locale_HTML; }
-//     if(status) { FindOnPageBack(); FindOnPageGo(); } //чистим прошлое и Выделяем найденное
-//     if(!status) { FindOnPageBack(); } //Снимаем выделение
-// }
 
 function searchElem() {
     const searchInp = document.querySelector('#search__input');
@@ -73,8 +24,7 @@ function searchElem() {
         e.preventDefault()
         const searchText = new RegExp(searchInp.value.trim(), 'i');
         articles.forEach(arcticle => {
-            console.log(arcticle.id)
-            const filmTitle = arcticle.querySelector(`.films-wrapper`);
+            const filmTitle = arcticle.querySelector(`*`);
             if (!searchText.test(filmTitle.textContent)) {
                 arcticle.remove()
             } else {
@@ -182,7 +132,9 @@ async function getFilms() {
 function showMore() {
     const showBtns = document.querySelectorAll('li button');
     showBtns.forEach(item => {
+        const infoCharactersWindow = document.querySelector('.modal');
         item.addEventListener('click', async () => {
+            item.disabled = true
             const url = `https://swapi.co/api/films/${item.id}`
             const response = await fetch(url);
             const result = await response.json();
@@ -199,13 +151,29 @@ function showMore() {
             charArr.forEach(async char => {
                 const charResponse = await fetch(char)
                 const charResult = await charResponse.json();
-                const charNames = charResult.name
                 const listItem = document.createElement('li');
-                listItem.style.cursor = 'pointer';
-                listItem.innerHTML = charNames;
-                // infoWrap.innerHTML += `<li style="cursor: pointer">${charNames}</li>`
+                listItem.setAttribute('class', 'list-items');
+                listItem.innerHTML = charResult.name;
                 infoWrap.appendChild(listItem)
-                listItem.addEventListener('click', showCharactersInfo)
+                listItem.addEventListener('click', () => {
+                    if (listItem.innerHTML == charResult.name) {
+                        infoCharactersWindow.style.display = 'block'
+                        infoCharactersWindow.innerHTML = `
+                            <h3>Name: ${charResult.name}</h3>
+                            <li>Birth Year: ${charResult.birth_year}</li>
+                            <li>Weight: ${charResult.mass}</li>
+                            <li>Height: ${charResult.height}</li>
+                            <li>Skin color: ${charResult.skin_color}</li>
+                            <li>Eye color: ${charResult.eye_color}</li>
+                            <li>Hair color: ${charResult.hair_color}</li>
+                            <li>Gender: ${charResult.gender}</li>
+                            <button id="btn-close">Close</button>
+                        `
+                    }
+                    document.querySelector('#btn-close').addEventListener('click', () => {
+                        infoCharactersWindow.style.display = 'none'
+                    })
+                })
             })
 
             infoWrap.insertAdjacentHTML('afterend', `
@@ -226,9 +194,30 @@ function showMore() {
             planetArr.forEach(async planet => {
                 const planetResponse = await fetch(planet);
                 const planetResult = await planetResponse.json();
+                const planetItem = document.createElement('li');
                 const planetNames = planetResult.name;
-                planetWrapper.innerHTML += `<li>${planetNames}</li>`
+                planetItem.classList.add('list-items');
+                planetItem.innerHTML = `${planetNames}`
+                planetWrapper.appendChild(planetItem);
 
+                planetItem.addEventListener('click', () => {
+                    if (planetItem.innerHTML == planetNames) {
+                        infoCharactersWindow.style.display = 'block'
+                        infoCharactersWindow.innerHTML = `
+                            <h3>Planet name: ${planetNames}</h3>  
+                            <li>Climate: ${planetResult.climate}</li>      
+                            <li>Diameter: ${planetResult.diameter}</li>      
+                            <li>Gravity: ${planetResult.gravity}</li>      
+                            <li>Population: ${planetResult.population}</li>      
+                            <li>Terrain: ${planetResult.terrain}</li>      
+                            <li>Orbital period: ${planetResult.orbital_period}</li>      
+                            <button id="btn-close">Close</button>
+                        `
+                    }
+                    document.querySelector('#btn-close').addEventListener('click', () => {
+                        infoCharactersWindow.style.display = 'none'
+                    })
+                })
             })
 
             const shipWrapper = document.querySelector(`.ships-film${item.id} ul`)
@@ -238,9 +227,30 @@ function showMore() {
             shipsArr.forEach(async ship => {
                 const shipResponse = await fetch(ship);
                 const shipResult = await shipResponse.json();
-                const shipNames = shipResult.name;
-                const shipModels = shipResult.model;
-                shipWrapper.innerHTML += `<li>Name: ${shipNames}, model: ${shipModels}</li>`
+                const shipItem = document.createElement('li')
+                console.log(shipResult)
+                shipItem.classList.add('list-items');
+                shipItem.innerHTML = shipResult.name
+                shipWrapper.appendChild(shipItem);
+
+                shipItem.addEventListener('click', () => {
+                    if (shipItem.innerHTML == shipResult.name) {
+                        infoCharactersWindow.style.display = 'block'
+                        infoCharactersWindow.innerHTML = `
+                            <h3>Ship name: ${shipResult.name}</h3>  
+                            <li>Model: ${shipResult.model}</li>      
+                            <li>Max speed: ${shipResult.max_atmosphering_speed}</li>      
+                            <li>Cost: ${shipResult.cost_in_credits}</li>      
+                            <li>Crew: ${shipResult.crew}</li>      
+                            <li>Manufacturer: ${shipResult.manufacturer}</li>      
+                            <li>Class: ${shipResult.starship_class}</li>      
+                            <button id="btn-close">Close</button>
+                        `
+                    }
+                    document.querySelector('#btn-close').addEventListener('click', () => {
+                        infoCharactersWindow.style.display = 'none'
+                    })
+                })
 
             })
 
@@ -257,10 +267,6 @@ function showMore() {
 }
 
 
-function showCharactersInfo() {
-    console.log(this)
-
-}
 
 // pagination
 
