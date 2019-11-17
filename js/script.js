@@ -1,17 +1,40 @@
 //show films list
-document.querySelector('body').addEventListener('load', init());
+window.addEventListener('load', init())
 
 async function init() {
     await getFilms();
     sortItem()
     await showMore()
     searchElem()
-
-
 }
 
-let films;
 
+let films;
+let charArr;
+let planetArr;
+let shipsArr;
+
+
+async function getFilms() {
+    const url = 'https://swapi.co/api/films';
+    const response = await fetch(url);
+    const result = await response.json();
+    films = result.results;
+
+
+    films.sort((a, b) => {
+        let aa = a.release_date.split('-');
+        let bb = b.release_date.split('-');
+        return aa[0] - bb[0];
+    });
+
+    films.map((item, index) => {
+        return item.episode_id = index + 1;
+    })
+
+    renderFilms()
+
+}
 
 
 function searchElem() {
@@ -39,7 +62,7 @@ function searchElem() {
 function sortItem() {
     const list = document.querySelector('.films__list')
     const selectSort = document.querySelector('#sort__select');
-    selectSort.addEventListener('change', () => {
+    selectSort.addEventListener('change', async () => {
         const selectValue = selectSort.options[selectSort.selectedIndex].value;
         switch (selectValue) {
             case ('date'):
@@ -50,17 +73,18 @@ function sortItem() {
                     <div></div>
                     <div></div>
                 </div>`
+
                 films.sort((a, b) => {
                     let aa = a.release_date.split('-');
                     let bb = b.release_date.split('-');
                     return aa[0] - bb[0];
                 });
-                renderFilms()
-                showMore()
-                searchElem()
+                await renderFilms()
+                await showMore()
+                await searchElem()
                 break
 
-            case ('episode_id'):
+            case ('characters_quantity'):
                 list.innerHTML = `
                 <div class="lds-ring">
                     <div></div>
@@ -69,12 +93,11 @@ function sortItem() {
                     <div></div>
                 </div>`
                 films.sort((a, b) => {
-                    return a.episode_id - b.episode_id
+                    return b.characters.length - a.characters.length
                 });
-                renderFilms()
-                showMore()
-                showMore()
-
+                await renderFilms()
+                await showMore()
+                await searchElem()
                 break
 
         }
@@ -116,18 +139,6 @@ function renderFilms() {
     })
 }
 
-async function getFilms() {
-    const url = 'https://swapi.co/api/films';
-    const response = await fetch(url);
-    const result = await response.json();
-    films = result.results;
-    // films.map((item, index) => {
-    //     return item.episode_id = index + 1;
-    // })
-
-    renderFilms()
-
-}
 
 function showMore() {
     const showBtns = document.querySelectorAll('li button');
@@ -139,21 +150,22 @@ function showMore() {
             const response = await fetch(url);
             const result = await response.json();
 
-            const charArr = result.characters;
-            const planetArr = result.planets;
-            const shipsArr = result.starships
+            charArr = result.characters;
+            planetArr = result.planets;
+            shipsArr = result.starships;
+
 
             const infoWrap = document.querySelector(`.characters-film${item.id} ul`);
             const h3Characters = document.createElement('h3');
             h3Characters.innerHTML = 'Characters';
             infoWrap.appendChild(h3Characters);
-
             charArr.forEach(async char => {
                 const charResponse = await fetch(char)
                 const charResult = await charResponse.json();
                 const listItem = document.createElement('li');
                 listItem.setAttribute('class', 'list-items');
                 listItem.innerHTML = charResult.name;
+                listArr.push(listItem);
                 infoWrap.appendChild(listItem)
                 listItem.addEventListener('click', () => {
                     if (listItem.innerHTML == charResult.name) {
@@ -175,14 +187,6 @@ function showMore() {
                     })
                 })
             })
-
-            infoWrap.insertAdjacentHTML('afterend', `
-                     <div class="pagination-characters${item.id}">
-                         <a id="btn_prev">Prev</a>
-                         <a id="btn_next">Next</a>
-                     </div>`
-            )
-
 
 
 
@@ -228,7 +232,6 @@ function showMore() {
                 const shipResponse = await fetch(ship);
                 const shipResult = await shipResponse.json();
                 const shipItem = document.createElement('li')
-                console.log(shipResult)
                 shipItem.classList.add('list-items');
                 shipItem.innerHTML = shipResult.name
                 shipWrapper.appendChild(shipItem);
@@ -253,22 +256,12 @@ function showMore() {
                 })
 
             })
-
-            shipWrapper.insertAdjacentHTML("afterend", `
-                    <div class="pagination-ships${item.id}">
-                         <a id="btn_prev">Prev</a>
-                         <a id="btn_next">Next</a>
-                     </div>`)
         })
     })
-
-
 
 }
 
 
-
-// pagination
 
 
 
