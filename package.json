@@ -1,0 +1,39 @@
+{
+  "name": "lab_last",
+  "version": "1.0.0",
+  "description": "lab",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel src/single -d build",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write ",
+    "findbugs": "npx eslint src/**/*.js",
+    "huskyformat": "pretty-quick --staged && npm run findbugs"
+  },
+  "author": "me",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.7.0",
+    "@babel/core": "^7.7.2",
+    "@babel/plugin-proposal-optional-chaining": "^7.6.0",
+    "@babel/preset-env": "^7.7.1",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.2.0",
+    "eslint": "^6.6.0",
+    "http-server": "^0.11.1",
+    "husky": "^3.0.9",
+    "prettier": "1.19.1",
+    "pretty-quick": "^2.0.1",
+    "style-loader": "^1.0.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged && npm run findbugs"
+    }
+  }
+}

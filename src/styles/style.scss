@@ -1,21 +1,26 @@
 //default settings
 @font-face {
-  font-family: "STARWARS";
-  src: url("fonts/STARWARS.eot?") format("eot"), url("fonts/STARWARS.woff") format("woff"), url("fonts/STARWARS.ttf") format("truetype"), url("fonts/STARWARS.svg#STARWARS") format("svg");
+  font-family: 'STARWARS';
+  src: url('../fonts/STARWARS.eot?') format('eot'), url('../fonts/STARWARS.woff') format('woff'),
+    url('../fonts/STARWARS.ttf') format('truetype'), url('../fonts/STARWARS.svg#STARWARS') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Droid Sans";
-  src: url("fonts/3947.ttf") format('truetype');
+  font-family: 'Droid Sans';
+  src: url('../fonts/3947.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
-
-h1,h2,h3,h4,h5,h6 {
-  font-family: "STARWARS";
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'STARWARS';
   letter-spacing: 2px;
   transform: perspective(300px) rotateX(25deg);
 }
@@ -35,13 +40,12 @@ body {
   padding: 0;
   margin: 0;
   color: #ffff66;
-
 }
 
-ul,li {
+ul,
+li {
   list-style: none;
 }
-
 
 //loader
 
@@ -99,8 +103,7 @@ header {
   padding: 30px;
   font-size: 14px;
   background: #000;
-  font-family: "STARWARS";
-
+  font-family: 'STARWARS';
 }
 
 #search__input {
@@ -108,7 +111,7 @@ header {
   border: 1px solid #ffff66;
   background: #000;
   color: #ffff66;
-  font-family: "STARWARS";
+  font-family: 'STARWARS';
   font-size: 12px;
 }
 
@@ -126,14 +129,14 @@ header {
   justify-content: center;
 
   .films__list {
-    transition: .5s ease-in-out;
+    transition: 0.5s ease-in-out;
   }
 
   .films__list > li {
-    transition: .3s;
+    transition: 0.3s;
     padding: 15px 0;
     //transform: perspective(300px) rotateX(23deg);
-    font-family: "STARWARS";
+    font-family: 'STARWARS';
     font-size: 14px;
     max-width: 600px;
     display: flex;
@@ -150,17 +153,17 @@ header {
   }
 }
 
-button,.update {
+button,
+.update {
   border: none;
   padding: 10px;
-  font-family: "STARWARS";
+  font-family: 'STARWARS';
   font-size: 16px;
   color: #000;
   background: #ffff66;
   cursor: pointer;
-  transition: all .4s ease;
+  transition: all 0.4s ease;
   margin-top: 10px;
-
 }
 
 .films__list li button:hover {
@@ -169,11 +172,10 @@ button,.update {
 }
 
 .films__main-title {
-  margin-bottom: 20px ;
+  margin-bottom: 20px;
 }
 
 // info
-
 
 .info1,
 .info2,
@@ -181,7 +183,7 @@ button,.update {
 .info4,
 .info5,
 .info6,
-.info7{
+.info7 {
   height: 300px;
   overflow-y: scroll;
   margin-left: 30px;
@@ -217,19 +219,18 @@ button,.update {
 .pagination-characters4,
 .pagination-characters5,
 .pagination-characters6,
-.pagination-characters7  {
+.pagination-characters7 {
   margin-top: 10px;
   display: flex;
   justify-content: center;
   #btn_next {
     margin: 0 10px 0 10px;
   }
-  #btn_next,#btn_prev {
+  #btn_next,
+  #btn_prev {
     cursor: pointer;
   }
 }
-
-
 
 //characters
 
@@ -242,12 +243,12 @@ button,.update {
   margin-bottom: 20px;
 }
 
-
 // pagination btn
 
-#btn_prev,#btn_next {
+#btn_prev,
+#btn_next {
   background: #ffff66;
-  font-family: "STARWARS";
+  font-family: 'STARWARS';
   color: #000000;
   font-size: 16px;
   padding: 5px;
@@ -268,19 +269,17 @@ button,.update {
 
   li {
     margin-top: 10px;
-    font-family: "STARWARS";
+    font-family: 'STARWARS';
     font-size: 18px;
   }
 }
 
-
 .list-items {
   margin-top: 10px;
   cursor: pointer;
-  transition: .4s ease;
+  transition: 0.4s ease;
 
   &:hover {
-    opacity: .7;
+    opacity: 0.7;
   }
-
 }

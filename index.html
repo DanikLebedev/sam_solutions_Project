@@ -1,48 +1,60 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="styles/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="src/styles/style.css" />
     <title>Star Wars Catalog</title>
-</head>
-<body>
-<div class="modal"></div>
-<embed src="audio/Имперский%20Марш%20—%20Звёздные%20Войны_(zvooq.su).mp3" autostart="true"  hidden="false" loop="true" width="300" height="65" align="bottom"> </embed>
-<header>
-    <div class="header-title-wrapper">
+  </head>
+  <body>
+    <div class="modal"></div>
+    <embed
+      src="src/audio/Имперский%20Марш%20—%20Звёздные%20Войны_(zvooq.su).mp3"
+      autostart="true"
+      hidden="false"
+      loop="true"
+      width="300"
+      height="65"
+      align="bottom"
+    />
+    <header>
+      <div class="header-title-wrapper">
         <h1 class="header__title">STAR WARS</h1>
         <h3 class="header__subtitle">Wookieepedia</h3>
-    </div>
-    <form action="">
+      </div>
+      <form action="">
         <div class="sort">
-            <h3 class="sort__title">Sort by</h3>
-            <select name="" id="sort__select">
-                <option value="date" selected>Release date</option>
-                <option value="characters_quantity">Characters quantity</option>
-            </select>
+          <h3 class="sort__title">Sort by</h3>
+          <select name="" id="sort__select">
+            <option value="date" selected>Release date</option>
+            <option value="characters_quantity">Characters quantity</option>
+          </select>
         </div>
-            <div class="search">
-                <h3 class="search__title">Search</h3>
-                <input type="text" id="search__input" placeholder="Search">
-                <button class="search__button"><img src="img/iconfinder_11_Search_106236.png" alt=""></button>
-            </div>
-<!--        <input type="submit"  value="update" class="update">-->
-    </form>
-</header>
-<section class="films">
-    <ul class="films__list">
+        <div class="search">
+          <h3 class="search__title">Search</h3>
+          <input type="text" id="search__input" placeholder="Search" />
+          <button class="search__button">
+            <img src="src/img/iconfinder_11_Search_106236.png" alt="" />
+          </button>
+        </div>
+        <!--        <input type="submit"  value="update" class="update">-->
+      </form>
+    </header>
+    <section class="films">
+      <ul class="films__list">
         <div class="lds-ring">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
         </div>
-    </ul>
-</section>
+      </ul>
+    </section>
 
-<script src="js/script.js"></script>
-</body>
+    <script src="dist/bundle.js"></script>
+  </body>
 </html>
