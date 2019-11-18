@@ -141,7 +141,7 @@ header {
     //transform: perspective(300px) rotateX(23deg);
     font-family: 'STARWARS';
     font-size: 14px;
-    max-width: 600px;
+    max-width: 800px;
     display: flex;
     justify-content: space-around;
   }
@@ -286,10 +286,6 @@ button,
   cursor: pointer;
   transition: 0.4s ease;
   animation: show 0.5s forwards ease-in-out;
-
-  &:hover {
-    opacity: 0.7;
-  }
 }
 
 .modal li {
@@ -305,5 +301,48 @@ button,
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+#characters-pagination1,
+#characters-pagination2,
+#characters-pagination3,
+#characters-pagination4,
+#characters-pagination5,
+#characters-pagination6,
+#characters-pagination7,
+#planets-pagination1,
+#planets-pagination2,
+#planets-pagination3,
+#planets-pagination4,
+#planets-pagination5,
+#planets-pagination6,
+#planets-pagination7,
+#ships-pagination1,
+#ships-pagination2,
+#ships-pagination3,
+#ships-pagination4,
+#ships-pagination5,
+#ships-pagination6,
+#ships-pagination7 {
+  display: flex;
+  margin: 0 20px;
+  padding: 0;
+
+  li {
+    padding: 3px;
+    border: solid #ffffff 1px;
+    margin-right: 5px;
+    cursor: pointer;
+    transition: 0.4s;
+    &:hover {
+      background: #ffff66;
+      color: #000000;
+    }
+  }
+
+  li.active {
+    background: #ffff66;
+    color: #000000;
   }
 }

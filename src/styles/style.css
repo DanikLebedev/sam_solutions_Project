@@ -169,7 +169,7 @@ header {
   padding: 15px 0;
   font-family: 'STARWARS';
   font-size: 14px;
-  max-width: 600px;
+  max-width: 800px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -379,9 +379,6 @@ button,
   -webkit-animation: show 0.5s forwards ease-in-out;
   animation: show 0.5s forwards ease-in-out;
 }
-.list-items:hover {
-  opacity: 0.7;
-}
 
 .modal li {
   -webkit-animation: show 0.5s forwards ease-in-out;
@@ -412,4 +409,109 @@ button,
     -webkit-transform: translateY(0);
     transform: translateY(0);
   }
+}
+
+#characters-pagination1,
+#characters-pagination2,
+#characters-pagination3,
+#characters-pagination4,
+#characters-pagination5,
+#characters-pagination6,
+#characters-pagination7,
+#planets-pagination1,
+#planets-pagination2,
+#planets-pagination3,
+#planets-pagination4,
+#planets-pagination5,
+#planets-pagination6,
+#planets-pagination7,
+#ships-pagination1,
+#ships-pagination2,
+#ships-pagination3,
+#ships-pagination4,
+#ships-pagination5,
+#ships-pagination6,
+#ships-pagination7 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 20px;
+  padding: 0;
+}
+#characters-pagination1 li,
+#characters-pagination2 li,
+#characters-pagination3 li,
+#characters-pagination4 li,
+#characters-pagination5 li,
+#characters-pagination6 li,
+#characters-pagination7 li,
+#planets-pagination1 li,
+#planets-pagination2 li,
+#planets-pagination3 li,
+#planets-pagination4 li,
+#planets-pagination5 li,
+#planets-pagination6 li,
+#planets-pagination7 li,
+#ships-pagination1 li,
+#ships-pagination2 li,
+#ships-pagination3 li,
+#ships-pagination4 li,
+#ships-pagination5 li,
+#ships-pagination6 li,
+#ships-pagination7 li {
+  padding: 3px;
+  border: solid #ffffff 1px;
+  margin-right: 5px;
+  cursor: pointer;
+  -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;
+}
+#characters-pagination1 li:hover,
+#characters-pagination2 li:hover,
+#characters-pagination3 li:hover,
+#characters-pagination4 li:hover,
+#characters-pagination5 li:hover,
+#characters-pagination6 li:hover,
+#characters-pagination7 li:hover,
+#planets-pagination1 li:hover,
+#planets-pagination2 li:hover,
+#planets-pagination3 li:hover,
+#planets-pagination4 li:hover,
+#planets-pagination5 li:hover,
+#planets-pagination6 li:hover,
+#planets-pagination7 li:hover,
+#ships-pagination1 li:hover,
+#ships-pagination2 li:hover,
+#ships-pagination3 li:hover,
+#ships-pagination4 li:hover,
+#ships-pagination5 li:hover,
+#ships-pagination6 li:hover,
+#ships-pagination7 li:hover {
+  background: #ffff66;
+  color: #000000;
+}
+#characters-pagination1 li.active,
+#characters-pagination2 li.active,
+#characters-pagination3 li.active,
+#characters-pagination4 li.active,
+#characters-pagination5 li.active,
+#characters-pagination6 li.active,
+#characters-pagination7 li.active,
+#planets-pagination1 li.active,
+#planets-pagination2 li.active,
+#planets-pagination3 li.active,
+#planets-pagination4 li.active,
+#planets-pagination5 li.active,
+#planets-pagination6 li.active,
+#planets-pagination7 li.active,
+#ships-pagination1 li.active,
+#ships-pagination2 li.active,
+#ships-pagination3 li.active,
+#ships-pagination4 li.active,
+#ships-pagination5 li.active,
+#ships-pagination6 li.active,
+#ships-pagination7 li.active {
+  background: #ffff66;
+  color: #000000;
 }
