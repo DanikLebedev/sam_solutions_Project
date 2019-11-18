@@ -99,14 +99,16 @@ header {
   font-size: 52px;
 }
 
-#sort__select {
+#sort__select,
+#select_search_settings {
   padding: 30px;
   font-size: 14px;
   background: #000;
   font-family: 'STARWARS';
 }
 
-#search__input {
+#search__input,
+#search__input_api {
   padding: 10px;
   border: 1px solid #ffff66;
   background: #000;
@@ -115,9 +117,11 @@ header {
   font-size: 12px;
 }
 
-.search__button {
+.search__button,
+.search__button_api {
   background: #ffff66;
   padding: 7px;
+  border-radius: 50%;
 }
 
 // films
@@ -174,10 +178,6 @@ button,
   margin-bottom: 20px;
 }
 
-#select_search_settings {
-  display: none;
-}
-
 // info
 
 .info1,
@@ -190,6 +190,10 @@ button,
   height: 300px;
   overflow-y: scroll;
   margin-left: 30px;
+}
+
+#btn-close {
+  animation: show 0.5s forwards ease-in-out;
 }
 
 .planets-film1,
@@ -281,6 +285,7 @@ button,
   margin-top: 10px;
   cursor: pointer;
   transition: 0.4s ease;
+  animation: show 0.5s forwards ease-in-out;
 
   &:hover {
     opacity: 0.7;
@@ -289,4 +294,16 @@ button,
 
 .modal li {
   animation: show 0.5s forwards ease-in-out;
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

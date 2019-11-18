@@ -141,11 +141,8 @@ header {
   font-size: 12px;
 }
 
-.search_api {
-  margin: 20px 0;
-}
-
-.search__button {
+.search__button,
+.search__button_api {
   background: #ffff66;
   padding: 7px;
   border-radius: 50%;
@@ -218,6 +215,11 @@ button,
   height: 300px;
   overflow-y: scroll;
   margin-left: 30px;
+}
+
+#btn-close {
+  -webkit-animation: show 0.5s forwards ease-in-out;
+  animation: show 0.5s forwards ease-in-out;
 }
 
 .planets-film1,
@@ -374,7 +376,40 @@ button,
   -webkit-transition: 0.4s ease;
   -o-transition: 0.4s ease;
   transition: 0.4s ease;
+  -webkit-animation: show 0.5s forwards ease-in-out;
+  animation: show 0.5s forwards ease-in-out;
 }
 .list-items:hover {
   opacity: 0.7;
+}
+
+.modal li {
+  -webkit-animation: show 0.5s forwards ease-in-out;
+  animation: show 0.5s forwards ease-in-out;
+}
+
+@-webkit-keyframes show {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(100px);
+    transform: translateY(100px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(100px);
+    transform: translateY(100px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
 }

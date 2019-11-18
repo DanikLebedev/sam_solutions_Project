@@ -67,6 +67,8 @@ function fetchSearchData(selectValue, searchInp) {
 
 function displaySearchResults(results) {
   const modal = document.querySelector('.modal');
+  const errorMsg = document.createElement('div');
+  errorMsg.innerHTML = `Information not found`;
   modal.innerHTML = '';
   const closeBtn = document.createElement('button');
   closeBtn.innerHTML = 'Close';
@@ -75,11 +77,16 @@ function displaySearchResults(results) {
   document.querySelector('#btn-close').addEventListener('click', () => {
     modal.style.display = 'none';
   });
+  console.log(results);
   modal.style.display = 'block';
-  for (let props in results[0]) {
-    let li = document.createElement('li');
-    li.innerHTML = `${props} : ${results[0][props]}`;
-    modal.appendChild(li);
+  if (results.length === 0) {
+    modal.appendChild(errorMsg);
+  } else {
+    for (let props in results[0]) {
+      let li = document.createElement('li');
+      li.innerHTML = `${props} : ${results[0][props]}`;
+      modal.appendChild(li);
+    }
   }
 }
 
@@ -88,7 +95,6 @@ function searchData() {
   const searchForm = document.querySelector('.search_api_form');
   searchSelect.addEventListener('change', () => {
     let selectValue = searchSelect.options[searchSelect.selectedIndex].value;
-    console.log(selectValue);
     searchForm.addEventListener('submit', e => {
       e.preventDefault();
       const searchInp = document.querySelector('#search__input_api').value;
