@@ -118,7 +118,6 @@ header {
 .search__button {
   background: #ffff66;
   padding: 7px;
-  border-radius: 50%;
 }
 
 // films
@@ -173,6 +172,10 @@ button,
 
 .films__main-title {
   margin-bottom: 20px;
+}
+
+#select_search_settings {
+  display: none;
 }
 
 // info
@@ -282,4 +285,8 @@ button,
   &:hover {
     opacity: 0.7;
   }
+}
+
+.modal li {
+  animation: show 0.5s forwards ease-in-out;
 }

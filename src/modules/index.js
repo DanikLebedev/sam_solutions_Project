@@ -6,6 +6,7 @@ async function init() {
   sortItem();
   await showMore();
   searchElem();
+  searchData();
 }
 
 let films;
@@ -50,6 +51,50 @@ function searchElem() {
       }
     });
     searchInp.value = '';
+  });
+}
+
+function fetchSearchData(selectValue, searchInp) {
+  const url = `https://swapi.co/api/${selectValue}/?search=${searchInp}`;
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      const results = data.results;
+      displaySearchResults(results);
+    })
+    .catch(() => console.log('An error occurred'));
+}
+
+function displaySearchResults(results) {
+  const modal = document.querySelector('.modal');
+  modal.innerHTML = '';
+  const closeBtn = document.createElement('button');
+  closeBtn.innerHTML = 'Close';
+  closeBtn.setAttribute('id', 'btn-close');
+  modal.appendChild(closeBtn);
+  document.querySelector('#btn-close').addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+  modal.style.display = 'block';
+  for (let props in results[0]) {
+    let li = document.createElement('li');
+    li.innerHTML = `${props} : ${results[0][props]}`;
+    modal.appendChild(li);
+  }
+}
+
+function searchData() {
+  const searchSelect = document.querySelector('#select_search_settings');
+  const searchForm = document.querySelector('.search_api_form');
+  searchSelect.addEventListener('change', () => {
+    let selectValue = searchSelect.options[searchSelect.selectedIndex].value;
+    console.log(selectValue);
+    searchForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const searchInp = document.querySelector('#search__input_api').value;
+      const searchQuery = searchInp.trim();
+      fetchSearchData(selectValue, searchQuery);
+    });
   });
 }
 

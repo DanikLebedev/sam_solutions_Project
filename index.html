@@ -26,16 +26,35 @@
         <h1 class="header__title">STAR WARS</h1>
         <h3 class="header__subtitle">Wookieepedia</h3>
       </div>
+      <form action="" class="search_api_form">
+        <div class="search_api">
+          <h3 class="search__title">Search on internet by</h3>
+          <input type="text" id="search__input_api" placeholder="Enter name" />
+          <select id="select_search_settings">
+            <option value="">Choose category</option>
+            <option value="films">Films</option>
+            <option value="people">Characters</option>
+            <option value="planets">Planets</option>
+            <option value="species">Species</option>
+            <option value="starships">Starships</option>
+            <option value="vehicles">Vehicles</option>
+          </select>
+          <button class="search__button_api">
+            <img src="src/img/iconfinder_11_Search_106236.png" alt="" />
+          </button>
+        </div>
+      </form>
       <form action="">
         <div class="sort">
           <h3 class="sort__title">Sort by</h3>
-          <select name="" id="sort__select">
+          <select id="sort__select">
             <option value="date" selected>Release date</option>
             <option value="characters_quantity">Characters quantity</option>
           </select>
         </div>
+
         <div class="search">
-          <h3 class="search__title">Search</h3>
+          <h3 class="search__title">Search on page</h3>
           <input type="text" id="search__input" placeholder="Search" />
           <button class="search__button">
             <img src="src/img/iconfinder_11_Search_106236.png" alt="" />

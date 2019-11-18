@@ -123,20 +123,26 @@ header {
   font-size: 52px;
 }
 
-#sort__select {
+#sort__select,
+#select_search_settings {
   padding: 30px;
   font-size: 14px;
   background: #000;
   font-family: 'STARWARS';
 }
 
-#search__input {
+#search__input,
+#search__input_api {
   padding: 10px;
   border: 1px solid #ffff66;
   background: #000;
   color: #ffff66;
   font-family: 'STARWARS';
   font-size: 12px;
+}
+
+.search_api {
+  margin: 20px 0;
 }
 
 .search__button {
