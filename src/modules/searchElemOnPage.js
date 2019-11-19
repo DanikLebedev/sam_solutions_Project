@@ -8,7 +8,7 @@ export default function searchElem() {
     e.preventDefault();
     const searchText = new RegExp(searchInp.value.trim(), 'i');
     filmSection.forEach(section => {
-      const filmTitle = section.querySelector(`h3`);
+      const filmTitle = section.querySelector(`*`);
       if (!searchText.test(filmTitle.textContent)) {
         section.remove();
       } else {
