@@ -49,10 +49,50 @@ function displaySearchResults(results) {
     modal.style.display = 'none';
   });
   modal.style.display = 'block';
+
   if (results.length === 0) {
     modal.appendChild(errorMsg);
   } else {
     for (let props in results[0]) {
+      let li = document.createElement('li');
+      li.innerHTML = `${props} : ${results[0][props]}`;
+      modal.appendChild(li);
+      switch (props) {
+        case 'films':
+          li.innerHTML = `${props}:`;
+          results[0][props].forEach(film => {
+            fetch(film)
+              .then(response => response.json())
+              .then(data => {
+                li.innerHTML += ` ${data.title} , `;
+              })
+              .catch(() => console.log('An error occurred'));
+          });
+          break;
+        case 'residents':
+          fetchProps(results[0][props], li, props);
+          break;
+        case 'characters':
+          fetchProps(results[0][props], li, props);
+          break;
+        case 'species':
+          fetchProps(results[0][props], li, props);
+          break;
+        case 'starships':
+          fetchProps(results[0][props], li, props);
+          break;
+        case 'planets':
+          fetchProps(results[0][props], li, props);
+          break;
+        case 'vehicles':
+          console.log(props);
+          fetchProps(results[0][props], li, props);
+          break;
+        case 'people':
+          fetchProps(results[0][props], li, props);
+          break;
+      }
+
       if (validURL(results[0][props]) && props !== 'url') {
         fetch(results[0][props])
           .then(response => response.json())
@@ -61,10 +101,18 @@ function displaySearchResults(results) {
           })
           .catch(() => console.log('An error occurred'));
       }
-
-      let li = document.createElement('li');
-      li.innerHTML = `${props} : ${results[0][props]}`;
-      modal.appendChild(li);
     }
   }
+}
+
+function fetchProps(arr, li, props) {
+  li.innerHTML = `${props}:`;
+  arr.forEach(film => {
+    fetch(film)
+      .then(response => response.json())
+      .then(data => {
+        li.innerHTML += ` ${data.name}; `;
+      })
+      .catch(() => console.log('An error occurred'));
+  });
 }

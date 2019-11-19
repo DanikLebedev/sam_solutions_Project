@@ -158,9 +158,7 @@ header {
   justify-content: center;
 }
 .films .films__list {
-  -webkit-transition: 0.5s ease-in-out;
-  -o-transition: 0.5s ease-in-out;
-  transition: 0.5s ease-in-out;
+  width: 90%;
 }
 .films .films__list > li {
   -webkit-transition: 0.3s;
@@ -169,16 +167,17 @@ header {
   padding: 15px 0;
   font-family: 'STARWARS';
   font-size: 14px;
-  max-width: 800px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: distribute;
   justify-content: space-around;
+  -webkit-animation: show 0.5s forwards ease-in-out;
+  animation: show 0.5s forwards ease-in-out;
 }
 .films .films__list li h3 {
   font-size: 24px;
-  margin-bottom: 10px;
+  margin: 10px;
 }
 
 button,
@@ -205,150 +204,13 @@ button,
   margin-bottom: 20px;
 }
 
-.info1,
-.info2,
-.info3,
-.info4,
-.info5,
-.info6,
-.info7 {
-  height: 300px;
-  overflow-y: scroll;
-  margin-left: 30px;
-}
-
 #btn-close {
   -webkit-animation: show 0.5s forwards ease-in-out;
   animation: show 0.5s forwards ease-in-out;
 }
 
-.planets-film1,
-.planets-film2,
-.planets-film3,
-.planets-film4,
-.planets-film5,
-.planets-film6,
-.planets-film7 {
-  margin: 0 30px 30px;
-}
-
-.pagination-ships1,
-.pagination-ships2,
-.pagination-ships3,
-.pagination-ships4,
-.pagination-ships5,
-.pagination-ships6,
-.pagination-ships7,
-.pagination-planets1,
-.pagination-planets2,
-.pagination-planets3,
-.pagination-planets4,
-.pagination-planets5,
-.pagination-planets6,
-.pagination-planets7,
-.pagination-characters1,
-.pagination-characters2,
-.pagination-characters3,
-.pagination-characters4,
-.pagination-characters5,
-.pagination-characters6,
-.pagination-characters7 {
-  margin-top: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-}
-.pagination-ships1 #btn_next,
-.pagination-ships2 #btn_next,
-.pagination-ships3 #btn_next,
-.pagination-ships4 #btn_next,
-.pagination-ships5 #btn_next,
-.pagination-ships6 #btn_next,
-.pagination-ships7 #btn_next,
-.pagination-planets1 #btn_next,
-.pagination-planets2 #btn_next,
-.pagination-planets3 #btn_next,
-.pagination-planets4 #btn_next,
-.pagination-planets5 #btn_next,
-.pagination-planets6 #btn_next,
-.pagination-planets7 #btn_next,
-.pagination-characters1 #btn_next,
-.pagination-characters2 #btn_next,
-.pagination-characters3 #btn_next,
-.pagination-characters4 #btn_next,
-.pagination-characters5 #btn_next,
-.pagination-characters6 #btn_next,
-.pagination-characters7 #btn_next {
-  margin: 0 10px 0 10px;
-}
-.pagination-ships1 #btn_next,
-.pagination-ships1 #btn_prev,
-.pagination-ships2 #btn_next,
-.pagination-ships2 #btn_prev,
-.pagination-ships3 #btn_next,
-.pagination-ships3 #btn_prev,
-.pagination-ships4 #btn_next,
-.pagination-ships4 #btn_prev,
-.pagination-ships5 #btn_next,
-.pagination-ships5 #btn_prev,
-.pagination-ships6 #btn_next,
-.pagination-ships6 #btn_prev,
-.pagination-ships7 #btn_next,
-.pagination-ships7 #btn_prev,
-.pagination-planets1 #btn_next,
-.pagination-planets1 #btn_prev,
-.pagination-planets2 #btn_next,
-.pagination-planets2 #btn_prev,
-.pagination-planets3 #btn_next,
-.pagination-planets3 #btn_prev,
-.pagination-planets4 #btn_next,
-.pagination-planets4 #btn_prev,
-.pagination-planets5 #btn_next,
-.pagination-planets5 #btn_prev,
-.pagination-planets6 #btn_next,
-.pagination-planets6 #btn_prev,
-.pagination-planets7 #btn_next,
-.pagination-planets7 #btn_prev,
-.pagination-characters1 #btn_next,
-.pagination-characters1 #btn_prev,
-.pagination-characters2 #btn_next,
-.pagination-characters2 #btn_prev,
-.pagination-characters3 #btn_next,
-.pagination-characters3 #btn_prev,
-.pagination-characters4 #btn_next,
-.pagination-characters4 #btn_prev,
-.pagination-characters5 #btn_next,
-.pagination-characters5 #btn_prev,
-.pagination-characters6 #btn_next,
-.pagination-characters6 #btn_prev,
-.pagination-characters7 #btn_next,
-.pagination-characters7 #btn_prev {
-  cursor: pointer;
-}
-
-.characters {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-}
-
 .sort {
   margin-bottom: 20px;
-}
-
-#btn_prev,
-#btn_next {
-  background: #ffff66;
-  font-family: 'STARWARS';
-  color: #000000;
-  font-size: 16px;
-  padding: 5px;
 }
 
 .modal {
@@ -357,7 +219,6 @@ button,
   right: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
   background: #000;
   display: none;
   z-index: 10;
@@ -381,6 +242,7 @@ button,
 }
 
 .modal li {
+  text-align: center;
   -webkit-animation: show 0.5s forwards ease-in-out;
   animation: show 0.5s forwards ease-in-out;
 }
@@ -431,7 +293,21 @@ button,
 #ships-pagination4,
 #ships-pagination5,
 #ships-pagination6,
-#ships-pagination7 {
+#ships-pagination7,
+#vehicles-pagination1,
+#vehicles-pagination2,
+#vehicles-pagination3,
+#vehicles-pagination4,
+#vehicles-pagination5,
+#vehicles-pagination6,
+#vehicles-pagination7,
+#species-pagination1,
+#species-pagination2,
+#species-pagination3,
+#species-pagination4,
+#species-pagination5,
+#species-pagination6,
+#species-pagination7 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -458,7 +334,21 @@ button,
 #ships-pagination4 li,
 #ships-pagination5 li,
 #ships-pagination6 li,
-#ships-pagination7 li {
+#ships-pagination7 li,
+#vehicles-pagination1 li,
+#vehicles-pagination2 li,
+#vehicles-pagination3 li,
+#vehicles-pagination4 li,
+#vehicles-pagination5 li,
+#vehicles-pagination6 li,
+#vehicles-pagination7 li,
+#species-pagination1 li,
+#species-pagination2 li,
+#species-pagination3 li,
+#species-pagination4 li,
+#species-pagination5 li,
+#species-pagination6 li,
+#species-pagination7 li {
   padding: 3px;
   border: solid #ffffff 1px;
   margin-right: 5px;
@@ -487,7 +377,21 @@ button,
 #ships-pagination4 li:hover,
 #ships-pagination5 li:hover,
 #ships-pagination6 li:hover,
-#ships-pagination7 li:hover {
+#ships-pagination7 li:hover,
+#vehicles-pagination1 li:hover,
+#vehicles-pagination2 li:hover,
+#vehicles-pagination3 li:hover,
+#vehicles-pagination4 li:hover,
+#vehicles-pagination5 li:hover,
+#vehicles-pagination6 li:hover,
+#vehicles-pagination7 li:hover,
+#species-pagination1 li:hover,
+#species-pagination2 li:hover,
+#species-pagination3 li:hover,
+#species-pagination4 li:hover,
+#species-pagination5 li:hover,
+#species-pagination6 li:hover,
+#species-pagination7 li:hover {
   background: #ffff66;
   color: #000000;
 }
@@ -511,7 +415,30 @@ button,
 #ships-pagination4 li.active,
 #ships-pagination5 li.active,
 #ships-pagination6 li.active,
-#ships-pagination7 li.active {
+#ships-pagination7 li.active,
+#vehicles-pagination1 li.active,
+#vehicles-pagination2 li.active,
+#vehicles-pagination3 li.active,
+#vehicles-pagination4 li.active,
+#vehicles-pagination5 li.active,
+#vehicles-pagination6 li.active,
+#vehicles-pagination7 li.active,
+#species-pagination1 li.active,
+#species-pagination2 li.active,
+#species-pagination3 li.active,
+#species-pagination4 li.active,
+#species-pagination5 li.active,
+#species-pagination6 li.active,
+#species-pagination7 li.active {
   background: #ffff66;
   color: #000000;
+}
+
+@media (max-width: 940px) {
+  .films__list li {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
 }

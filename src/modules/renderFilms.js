@@ -82,6 +82,7 @@ function renderLayout(filmsArr) {
                 <h3 class=films-title>${film.title}</h3>
                 <p>Release : ${film.release_date}</p>
                 <p>Director : ${film.director}</p>
+                <p>Producers : ${film.producer}</p>
                 <p>Description: <br> ${film.opening_crawl}</p>
                 <button id=${film.episode_id}>Show More</button></div>
                 <div class=characters-film${film.episode_id}>
@@ -91,6 +92,12 @@ function renderLayout(filmsArr) {
                      <ul></ul>
                  </div>
                 <div class=ships-film${film.episode_id}>
+                    <ul></ul>
+                </div>
+                 <div class=vehicles-film${film.episode_id}>
+                    <ul></ul>
+                </div>
+                 <div class=species-film${film.episode_id}>
                     <ul></ul>
                 </div>
         `;

@@ -132,27 +132,22 @@ header {
   justify-content: center;
 
   .films__list {
-    transition: 0.5s ease-in-out;
+    width: 90%;
   }
 
   .films__list > li {
     transition: 0.3s;
     padding: 15px 0;
-    //transform: perspective(300px) rotateX(23deg);
     font-family: 'STARWARS';
     font-size: 14px;
-    max-width: 800px;
     display: flex;
     justify-content: space-around;
+    animation: show 0.5s forwards ease-in-out;
   }
 
   .films__list li h3 {
     font-size: 24px;
-    margin-bottom: 10px;
-  }
-
-  .films__list li:hover {
-    //transform: scale(1);
+    margin: 10px;
   }
 }
 
@@ -178,87 +173,12 @@ button,
   margin-bottom: 20px;
 }
 
-// info
-
-.info1,
-.info2,
-.info3,
-.info4,
-.info5,
-.info6,
-.info7 {
-  height: 300px;
-  overflow-y: scroll;
-  margin-left: 30px;
-}
-
 #btn-close {
   animation: show 0.5s forwards ease-in-out;
 }
 
-.planets-film1,
-.planets-film2,
-.planets-film3,
-.planets-film4,
-.planets-film5,
-.planets-film6,
-.planets-film7 {
-  margin: 0 30px 30px;
-}
-
-.pagination-ships1,
-.pagination-ships2,
-.pagination-ships3,
-.pagination-ships4,
-.pagination-ships5,
-.pagination-ships6,
-.pagination-ships7,
-.pagination-planets1,
-.pagination-planets2,
-.pagination-planets3,
-.pagination-planets4,
-.pagination-planets5,
-.pagination-planets6,
-.pagination-planets7,
-.pagination-characters1,
-.pagination-characters2,
-.pagination-characters3,
-.pagination-characters4,
-.pagination-characters5,
-.pagination-characters6,
-.pagination-characters7 {
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
-  #btn_next {
-    margin: 0 10px 0 10px;
-  }
-  #btn_next,
-  #btn_prev {
-    cursor: pointer;
-  }
-}
-
-//characters
-
-.characters {
-  display: flex;
-  justify-content: center;
-}
-
 .sort {
   margin-bottom: 20px;
-}
-
-// pagination btn
-
-#btn_prev,
-#btn_next {
-  background: #ffff66;
-  font-family: 'STARWARS';
-  color: #000000;
-  font-size: 16px;
-  padding: 5px;
 }
 
 .modal {
@@ -267,7 +187,6 @@ button,
   right: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
   background: #000;
   display: none;
   z-index: 10;
@@ -289,6 +208,7 @@ button,
 }
 
 .modal li {
+  text-align: center;
   animation: show 0.5s forwards ease-in-out;
 }
 
@@ -324,7 +244,21 @@ button,
 #ships-pagination4,
 #ships-pagination5,
 #ships-pagination6,
-#ships-pagination7 {
+#ships-pagination7,
+#vehicles-pagination1,
+#vehicles-pagination2,
+#vehicles-pagination3,
+#vehicles-pagination4,
+#vehicles-pagination5,
+#vehicles-pagination6,
+#vehicles-pagination7,
+#species-pagination1,
+#species-pagination2,
+#species-pagination3,
+#species-pagination4,
+#species-pagination5,
+#species-pagination6,
+#species-pagination7 {
   display: flex;
   margin: 0 20px;
   padding: 0;
@@ -344,5 +278,11 @@ button,
   li.active {
     background: #ffff66;
     color: #000000;
+  }
+}
+
+@media (max-width: 940px) {
+  .films__list li {
+    flex-direction: column;
   }
 }
