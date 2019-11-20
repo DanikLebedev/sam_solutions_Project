@@ -1,11 +1,11 @@
 import searchElemOnPage from './searchElemOnPage';
 import renderData from './renderData';
 
-export default async function renderFilms(filmsArr) {
+export default async function renderFilms() {
   const url = 'https://swapi.co/api/films';
   const response = await fetch(url);
   const result = await response.json();
-  filmsArr = result.results;
+  const filmsArr = result.results;
 
   filmsArr.sort((a, b) => {
     let aa = a.release_date.split('-');
@@ -55,6 +55,22 @@ export default async function renderFilms(filmsArr) {
                 </div>`;
         filmsArr.sort((a, b) => {
           return b.characters.length - a.characters.length;
+        });
+        await renderLayout(filmsArr);
+        renderData();
+        searchElemOnPage();
+        break;
+
+      case 'planets_quantity':
+        list.innerHTML = `
+                <div class="lds-ring">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>`;
+        filmsArr.sort((a, b) => {
+          return b.planets.length - a.planets.length;
         });
         await renderLayout(filmsArr);
         renderData();

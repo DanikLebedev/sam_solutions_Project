@@ -5,10 +5,8 @@ import searchElemOnPage from './searchElemOnPage';
 
 window.addEventListener('load', init);
 
-let films;
-
 async function init() {
-  await renderFilms(films);
+  await renderFilms();
   await renderData();
   searchElemOnPage();
   searchData();

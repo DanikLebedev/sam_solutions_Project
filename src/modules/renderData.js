@@ -5,6 +5,7 @@ export default function showMore() {
   showBtns.forEach(item => {
     item.addEventListener('click', async () => {
       item.disabled = true;
+      item.style.opacity = '0';
       const url = `https://swapi.co/api/films/${item.id}`;
       const response = await fetch(url);
       const result = await response.json();
@@ -274,32 +275,36 @@ function renderVehiclesName(vehiclesArr, itemId) {
   const h3Vehicles = document.createElement('h3');
   h3Vehicles.innerHTML = 'Vehicles';
   vehicleWrapper.insertAdjacentElement('afterbegin', h3Vehicles);
-
   //pagination
   vehiclesWrapperUl.insertAdjacentHTML(
     'beforebegin',
     `
             <ul id=vehicles-pagination${itemId.id}></ul>`
   );
-  let notesOnPage = 5;
-  let countOfItems = Math.ceil(vehiclesArr.length / notesOnPage);
-  let items = [];
-  const pagination = document.querySelector(`#vehicles-pagination${itemId.id}`);
 
-  for (let i = 1; i <= countOfItems; i++) {
-    const li = document.createElement('li');
-    li.innerHTML = i;
-    pagination.appendChild(li);
-    items.push(li);
-  }
+  if (vehiclesArr.length === 0) {
+    vehiclesWrapperUl.innerHTML = 'Information not found';
+  } else {
+    var notesOnPage = 5;
+    let countOfItems = Math.ceil(vehiclesArr.length / notesOnPage);
+    let items = [];
+    const pagination = document.querySelector(`#vehicles-pagination${itemId.id}`);
 
-  showPage(items[0]);
+    for (let i = 1; i <= countOfItems; i++) {
+      const li = document.createElement('li');
+      li.innerHTML = i;
+      pagination.appendChild(li);
+      items.push(li);
+    }
 
-  items.forEach(item => {
-    item.addEventListener('click', function() {
-      showPage(this);
+    showPage(items[0]);
+
+    items.forEach(item => {
+      item.addEventListener('click', function() {
+        showPage(this);
+      });
     });
-  });
+  }
 
   function showPage(item) {
     let activeLi = document.querySelector(`#vehicles-pagination${itemId.id} li.active`);
@@ -321,6 +326,9 @@ function renderVehiclesAdditionalInfo(notes, wrap, modal) {
     const vehicleResponse = await fetch(vehicle);
     const vehicleResult = await vehicleResponse.json();
     const shipItem = document.createElement('li');
+    if (!vehicleResult) {
+      shipItem.innerHTML = 'Information not found';
+    }
     shipItem.classList.add('list-items');
     shipItem.innerHTML = vehicleResult.name;
     wrap.appendChild(shipItem);
@@ -398,7 +406,6 @@ function renderSpeciesAdditionalInfo(notes, wrap, modal) {
   notes.forEach(async species => {
     const speciesResponse = await fetch(species);
     const speciesResult = await speciesResponse.json();
-    console.log(speciesResult);
     const shipItem = document.createElement('li');
     shipItem.classList.add('list-items');
     shipItem.innerHTML = speciesResult.name;

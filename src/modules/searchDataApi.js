@@ -85,7 +85,6 @@ function displaySearchResults(results) {
           fetchProps(results[0][props], li, props);
           break;
         case 'vehicles':
-          console.log(props);
           fetchProps(results[0][props], li, props);
           break;
         case 'people':
