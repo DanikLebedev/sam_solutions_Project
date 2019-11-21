@@ -222,41 +222,7 @@ button,
   }
 }
 
-#characters-pagination1,
-#characters-pagination2,
-#characters-pagination3,
-#characters-pagination4,
-#characters-pagination5,
-#characters-pagination6,
-#characters-pagination7,
-#planets-pagination1,
-#planets-pagination2,
-#planets-pagination3,
-#planets-pagination4,
-#planets-pagination5,
-#planets-pagination6,
-#planets-pagination7,
-#ships-pagination1,
-#ships-pagination2,
-#ships-pagination3,
-#ships-pagination4,
-#ships-pagination5,
-#ships-pagination6,
-#ships-pagination7,
-#vehicles-pagination1,
-#vehicles-pagination2,
-#vehicles-pagination3,
-#vehicles-pagination4,
-#vehicles-pagination5,
-#vehicles-pagination6,
-#vehicles-pagination7,
-#species-pagination1,
-#species-pagination2,
-#species-pagination3,
-#species-pagination4,
-#species-pagination5,
-#species-pagination6,
-#species-pagination7 {
+.pagination {
   display: flex;
   margin: 0 20px;
   padding: 0;

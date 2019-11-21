@@ -41,7 +41,7 @@ function renderCharactersName(charArr, itemId) {
   infoWrapUl.insertAdjacentHTML(
     'beforebegin',
     `
-            <ul id=characters-pagination${itemId.id}></ul>`
+            <ul id=characters-pagination${itemId.id} class=pagination></ul>`
   );
 
   let notesOnPage = 5;
@@ -122,7 +122,7 @@ function renderPlanetsName(planetArr, itemId) {
   planetWrapperUl.insertAdjacentHTML(
     'beforebegin',
     `
-            <ul id=planets-pagination${itemId.id}></ul>`
+            <ul id=planets-pagination${itemId.id} class=pagination></ul>`
   );
   let notesOnPage = 5;
   let countOfItems = Math.ceil(planetArr.length / notesOnPage);
@@ -202,7 +202,7 @@ function renderShipsName(shipsArr, itemId) {
   shipWrapperUl.insertAdjacentHTML(
     'beforebegin',
     `
-            <ul id=ships-pagination${itemId.id}></ul>`
+            <ul id=ships-pagination${itemId.id} class=pagination></ul>`
   );
   let notesOnPage = 5;
   let countOfItems = Math.ceil(shipsArr.length / notesOnPage);
@@ -279,7 +279,7 @@ function renderVehiclesName(vehiclesArr, itemId) {
   vehiclesWrapperUl.insertAdjacentHTML(
     'beforebegin',
     `
-            <ul id=vehicles-pagination${itemId.id}></ul>`
+            <ul id=vehicles-pagination${itemId.id} class=pagination></ul>`
   );
 
   if (vehiclesArr.length === 0) {
@@ -365,7 +365,7 @@ function renderSpeciesName(speciesArr, itemId) {
   speciesWrapperUl.insertAdjacentHTML(
     'beforebegin',
     `
-            <ul id=species-pagination${itemId.id}></ul>`
+            <ul id=species-pagination${itemId.id} class=pagination></ul>`
   );
   let notesOnPage = 5;
   let countOfItems = Math.ceil(speciesArr.length / notesOnPage);
